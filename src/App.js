@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import { Header } from './Components/Header/Header.js';
 import { SearchBar } from './Components/SearchBar/SearchBar.js';
 import { Countries } from './Components/Countries/Countries.js';
-import { Filter } from './Components/Filter/Filter.js';
 
 const AppContainer = styled.div`
   width: 100%;
