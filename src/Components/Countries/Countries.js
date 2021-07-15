@@ -21,7 +21,7 @@ const CountriesContainer = styled.div`
  
 export function Countries(props) {
 
-    const data = props.data;
+    const data = props.fullData;
 
     const [country, setCountry] = useState(null);
     const [borderCountries, setBorderCountries] = useState(null);

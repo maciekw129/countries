@@ -20,8 +20,28 @@ const DetailsContainer = styled.div`
 
         @media only screen and (min-width: 800px) {
             width: 50%;
-            margin-right: 4rem;
+            margin-right: 6rem;
         }
+    }
+`
+const InformationsContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    width: 100%;
+
+    @media only screen and (min-width: 800px) {
+        width: 50%;
+    }
+
+    & .informations {
+        @media only screen and (min-width: 800px) {
+            width: 50%;
+        }
+    }
+
+    & .borderCountries {
+        width: 100%;
     }
 
     & h1 {
@@ -65,16 +85,6 @@ const BackButton = styled(Button)`
     }
 `
 
-const InformationsContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-
-    & div {
-        margin-right: 2rem;
-    }
-`
-
 export function Details(props) {
 
     const country = props.country;
@@ -85,7 +95,7 @@ export function Details(props) {
             <img src={country.flag} />
             <InformationsContainer>
                 <h1>{country.name}</h1>
-                <div>
+                <div className="informations">
                     <p><span>Native Name:</span> {country.nativeName}</p>
                     <p><span>Population:</span> {country.population}</p>
                     <p><span>Region:</span> {country.region}</p>
@@ -93,7 +103,7 @@ export function Details(props) {
                     <p><span>Capital:</span> {country.capital}</p>
                     <br/>
                 </div>
-                <div>  
+                <div className="informations">  
                     <p><span>Top Level Domain:</span> {country.topLevelDomain}</p>
                     <p><span>Currencies:</span> {country.currencies.map(currency => {
                         if(country.currencies.indexOf(currency) === 0){
@@ -111,7 +121,7 @@ export function Details(props) {
                     })}</p>
                     <br />
                 </div>
-                <div>  
+                <div className="borderCountries">  
                     {props.borderCountries ? <h4>Border Countries:</h4> : null}
                     {props.borderCountries ? props.borderCountries.map((country, index) => {
                         return <Button isDarkModeOn={props.isDarkModeOn} key={index} onClick={() => props.countryPicker(country)} >{country.name}</Button>
