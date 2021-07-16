@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 const CountryContainer = styled.div`
     display: flex;
-    align-items: stretch;
     flex-direction: column;
-    margin-top: 0rem;
+    margin-bottom: 3.5rem;
     width: 80%;
-    max-height: 420px;
+    
     box-shadow: ${props => props.isDarkModeOn ? '0' : '0px 0px 0.5rem lightgray'};
     background-color: ${props => props.isDarkModeOn ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)'};
     border-radius: 5px;
@@ -29,9 +28,12 @@ const CountryContainer = styled.div`
     }
     
     & img {
-        width: auto;
         height: 40%;
-        object-fit: cover;
+
+        @media only screen and (min-width: 855px) {
+            height: 40%;
+            object-fit: cover;
+        }
     }
 `;
 

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { Header } from './Components/Header/Header.js';
 import { SearchBar } from './Components/SearchBar/SearchBar.js';
 import { Countries } from './Components/Countries/Countries.js';
+import { Loading } from './Components/Loading/Loading.js';
 
 const AppContainer = styled.div`
   width: 100%;
@@ -90,7 +91,8 @@ function App() {
        detailsSwitcher={detailsSwitcher} 
        isDarkModeOn={isDarkModeOn}
        /> 
-       : null}
+       : 
+       <Loading />}
       
     </AppContainer>
   );

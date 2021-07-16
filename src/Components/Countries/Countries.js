@@ -12,7 +12,7 @@ const CountriesContainer = styled.div`
     width: 100%;
     margin-top: 3rem;
 
-    @media only screen and (min-width: 800px) {
+    @media only screen and (min-width: 855px) {
         flex-direction: row;
         flex-wrap: wrap;
         align-items: stretch;
@@ -54,14 +54,16 @@ export function Countries({ data, filteredData, showDetails, detailsSwitcher, is
                 countryPicker={countryPicker} 
                 isDarkModeOn={isDarkModeOn}
                 />
-            : filteredData.map((country, index) => 
+            : filteredData.length > 0 ? 
+            filteredData.map((country, index) => 
             <Country 
                 key={index}
                 country={country}
                 showDetails={handleCountryClick}
                 isDarkModeOn={isDarkModeOn}
-            />
-            )}
+            />)
+            : <p>Sorry! We couldn't find that country.</p>
+            }
         </CountriesContainer>
     )
 }
