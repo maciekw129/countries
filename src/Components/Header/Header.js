@@ -42,11 +42,11 @@ const DarkModeContainer = styled.div`
     }
 `
 
-export function Header(props) {
+export function Header({ darkModeSwitcher, isDarkModeOn }) {
     return(
-        <HeaderContainer isDarkModeOn={props.isDarkModeOn}>
+        <HeaderContainer isDarkModeOn={isDarkModeOn}>
             <h1>Where in the world?</h1>
-            <DarkModeContainer onClick={props.darkModeSwitcher}>
+            <DarkModeContainer onClick={darkModeSwitcher}>
                 <FontAwesomeIcon icon={['far', 'moon']} />
                 <p>Dark Mode</p>
             </DarkModeContainer>

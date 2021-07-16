@@ -85,13 +85,11 @@ const BackButton = styled(Button)`
     }
 `
 
-export function Details(props) {
-
-    const country = props.country;
+export function Details({ country, detailsSwitcher, borderCountries, countryPicker, isDarkModeOn}) {
 
     return(
         <DetailsContainer>
-            <BackButton isDarkModeOn={props.isDarkModeOn} onClick={props.detailsSwitcher}>Back</BackButton>
+            <BackButton isDarkModeOn={isDarkModeOn} onClick={detailsSwitcher}>Back</BackButton>
             <img src={country.flag} />
             <InformationsContainer>
                 <h1>{country.name}</h1>
@@ -105,26 +103,19 @@ export function Details(props) {
                 </div>
                 <div className="informations">  
                     <p><span>Top Level Domain:</span> {country.topLevelDomain}</p>
-                    <p><span>Currencies:</span> {country.currencies.map(currency => {
-                        if(country.currencies.indexOf(currency) === 0){
-                            return currency.name;
-                        } else {
-                            return `, ${currency.name}`;
-                        }
+                    <p><span>Currencies:</span> {country.currencies.map((currency, index) => {
+                        return (index === 0) ? currency.name : `, ${currency.name}`
                     })}</p>
-                    <p><span>Languages:</span> {country.languages.map(language => {
-                        if(country.languages.indexOf(language) === 0){
-                            return language.name;
-                        } else {
-                            return `, ${language.name}`;
-                        }
-                    })}</p>
+                    <p><span>Languages:</span> {country.languages.map((language, index) => {
+                        return (index === 0) ? language.name : `, ${language.name}`
+                        })}
+                    </p>
                     <br />
                 </div>
                 <div className="borderCountries">  
-                    {props.borderCountries ? <h4>Border Countries:</h4> : null}
-                    {props.borderCountries ? props.borderCountries.map((country, index) => {
-                        return <Button isDarkModeOn={props.isDarkModeOn} key={index} onClick={() => props.countryPicker(country)} >{country.name}</Button>
+                    {borderCountries ? <h4>Border Countries:</h4> : null}
+                    {borderCountries ? borderCountries.map((country, index) => {
+                        return <Button isDarkModeOn={isDarkModeOn} key={index} onClick={() => countryPicker(country)} >{country.name}</Button>
                     })
                     : null }  
                 </div>

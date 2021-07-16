@@ -84,8 +84,8 @@ function App() {
        : <SearchBar search={search} filter={filter} isDarkModeOn={isDarkModeOn} />}
       {filteredData ?
        <Countries 
-       data={filteredData}
-       fullData={data} 
+       filteredData={filteredData}
+       data={data} 
        showDetails={showDetails} 
        detailsSwitcher={detailsSwitcher} 
        isDarkModeOn={isDarkModeOn}

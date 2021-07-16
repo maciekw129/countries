@@ -19,9 +19,7 @@ const CountriesContainer = styled.div`
     }
 `
  
-export function Countries(props) {
-
-    const data = props.fullData;
+export function Countries({ data, filteredData, showDetails, detailsSwitcher, isDarkModeOn}) {
 
     const [country, setCountry] = useState(null);
     const [borderCountries, setBorderCountries] = useState(null);
@@ -41,32 +39,27 @@ export function Countries(props) {
         window.scrollTo(0, 0);
     }
 
-    const showDetails = (pickedCountry) => {
-        props.detailsSwitcher();
+    const handleCountryClick = (pickedCountry) => {
+        detailsSwitcher();
         countryPicker(pickedCountry);
     }
 
     return(
         <CountriesContainer>
-            {props.showDetails ?
+            {showDetails ?
             <Details 
                 country={country} 
-                detailsSwitcher={props.detailsSwitcher} 
+                detailsSwitcher={detailsSwitcher} 
                 borderCountries={borderCountries} 
                 countryPicker={countryPicker} 
-                isDarkModeOn={props.isDarkModeOn}
+                isDarkModeOn={isDarkModeOn}
                 />
-            : props.data.map((country, index) => 
+            : filteredData.map((country, index) => 
             <Country 
                 key={index}
                 country={country}
-                showDetails={showDetails}
-                name={country.name}
-                flag={country.flag}
-                population={country.population}
-                region={country.region}
-                capital={country.capital}
-                isDarkModeOn={props.isDarkModeOn}
+                showDetails={handleCountryClick}
+                isDarkModeOn={isDarkModeOn}
             />
             )}
         </CountriesContainer>

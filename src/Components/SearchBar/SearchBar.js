@@ -9,8 +9,8 @@ import { Filter } from '../Filter/Filter.js';
 const SearchBarContainer = styled.div`
     display: flex;
     flex-direction: column;
+    position: relative;
     width: 100%;
-    height: 3.25rem;
     position: relative;
     margin-top: 8rem;
 
@@ -21,9 +21,9 @@ const SearchBarContainer = styled.div`
 
     & input {
         width: 100%;
-        height: 100%;
         padding: 1rem 2rem;
         padding-left: 3.25rem;
+        height: 3.25rem;
         border: 0px;
         border-radius: 5px;
         background-color: ${props => props.isDarkModeOn ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)'};
@@ -45,18 +45,19 @@ const SearchBarContainer = styled.div`
 
     & .icon {
         position: absolute;
-        left: 1.2rem;
+        height: 1rem;
         top: 1.125rem;
+        left: 1.125rem;
         color: ${props => props.isDarkModeOn ? 'hsl(0, 0%, 90%)' : 'hsl(0, 0%, 52%)'};
     }
 `;
 
-export function SearchBar(props) {
+export function SearchBar({ search, filter, isDarkModeOn }) {
     return(
-        <SearchBarContainer isDarkModeOn={props.isDarkModeOn}>
-            <input type="search" placeholder="Search for a country..." onChange={props.search} />
+        <SearchBarContainer isDarkModeOn={isDarkModeOn}>
+            <input type="search" placeholder="Search for a country..." onChange={search} />
             <FontAwesomeIcon className='icon' icon={faSearch} />
-            <Filter isDarkModeOn={props.isDarkModeOn} filter={props.filter} />
+            <Filter isDarkModeOn={isDarkModeOn} filter={filter} />
         </SearchBarContainer>
     )
 }

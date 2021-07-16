@@ -3,8 +3,7 @@ import styled from 'styled-components';
 const FilterContainer = styled.div`
     
     & select {
-        padding: 0.75rem 1.5rem;
-        padding-left: 1rem;
+        padding: 0.75rem 0.75rem;
         border-radius: 3px;
         border: 0;
         background-color: ${props => props.isDarkModeOn ? 'hsl(209, 23%, 22%)' : 'hsl(0, 0%, 100%)'};

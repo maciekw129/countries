@@ -4,7 +4,7 @@ const CountryContainer = styled.div`
     display: flex;
     align-items: stretch;
     flex-direction: column;
-    margin-top: 3rem;
+    margin-top: 0rem;
     width: 80%;
     max-height: 420px;
     box-shadow: ${props => props.isDarkModeOn ? '0' : '0px 0px 0.5rem lightgray'};
@@ -29,13 +29,16 @@ const CountryContainer = styled.div`
     }
     
     & img {
-        width: 100%;
+        width: auto;
+        height: 40%;
+        object-fit: cover;
     }
 `;
 
 const Informations = styled.div`
     padding: 1rem 2rem;
     padding-bottom: 3rem;
+    height: 60%;
 
     & h2 {
         margin-bottom: 1rem;
@@ -50,18 +53,16 @@ const Informations = styled.div`
     }
 `
 
-export function Country(props) {
-
-    const country = props.country;
+export function Country({ country, showDetails, isDarkModeOn }) {
 
     return(
-        <CountryContainer isDarkModeOn={props.isDarkModeOn} onClick={() => props.showDetails(country)}>
-           <img src={props.flag} />
+        <CountryContainer isDarkModeOn={isDarkModeOn} onClick={() => showDetails(country)}>
+           <img src={country.flag} />
            <Informations>
-               <h2>{props.name}</h2>
-               <p><span>Population: </span>{props.population}</p>
-               <p><span>Region: </span>{props.region}</p>
-               <p><span>Capital: </span>{props.capital}</p>
+               <h2>{country.name}</h2>
+               <p><span>Population: </span>{country.population}</p>
+               <p><span>Region: </span>{country.region}</p>
+               <p><span>Capital: </span>{country.capital}</p>
            </Informations>
         </CountryContainer>
     )
