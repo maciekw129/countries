@@ -2,7 +2,7 @@
 # Countries
 ## About
 This app was made to practice React, and React hooks.  
-Project is from Frontend mentor site: https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca. 
+Project is from Frontend Mentor site: https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca. 
 # Technologies:
 * HTML5
 * CSS3
